@@ -1,5 +1,4 @@
 const express = require("express");
-
 const router = express.Router();
 
 // Import the model (cat.js) to use its database functions.
@@ -17,11 +16,8 @@ router.get("/", function(req, res) {
 });
 
 router.post("/api/burgers", function(req, res) {
-  burger.create([
-    "name", "eaten"
-  ], [
-    req.body.name, req.body.eaten
-  ], function(result) {
+  burger.create(["name"], [
+    req.body.name,], function(result) {
     // Send back the ID of the new quote
     res.json({ id: result.insertId });
   });
@@ -33,7 +29,7 @@ router.put("/api/burgers/:id", function(req, res) {
   console.log("condition", condition);
 
   burger.update({
-    eaten: req.body.eaten
+    eaten: true
   }, condition, function(result) {
     if (result.changedRows == 0) {
       // If no rows were changed, then the ID must not exist, so 404
