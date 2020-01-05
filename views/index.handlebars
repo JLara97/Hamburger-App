@@ -9,7 +9,6 @@
 
         <div class="row">
             <div class="col s12  center-align imgDiv">
-                {{!-- <img src="/images/b1.png" alt=" burgerpic"> --}}
             </div>
         </div>
 
@@ -20,7 +19,6 @@
 
                     <h5>TO EAT</h5>
                     <ul class="collection-item">
-                        {{!-- not eaten, where devoured is false  --}}
                         {{#each burgers}}
                         {{#unless eaten}}
                         {{> burgers/burger-block eaten=true}}
